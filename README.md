@@ -52,11 +52,11 @@ The website map generation module based on PHP 8.3 + MYSQL 9.3.0  with docker en
   docker compose exec php php bin/console s:g main
 
   ```
-### 6.2 Update sitemap (Добавить / удалить / изменить отдельные записи для конкретной карты сайта по критерию)
+### 6.2 Update sitemap (Обновить карты сайта. Удаление несуществующих карт, если изменили название.)
 
  ```sh
 
-  docker compose exec php php bin/console s:g update
+  docker compose exec php php bin/console s:g maps update
 
   ```
 
