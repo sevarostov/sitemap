@@ -3,6 +3,7 @@
 namespace App\Factory;
 
 use App\Entity\Page;
+use App\Entity\Template;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
@@ -31,11 +32,13 @@ final class PageFactory extends PersistentProxyObjectFactory
      */
     protected function defaults(): array|callable
     {
+		/** @var Template $template */
+		$template = TemplateFactory::new()->create();
         return [
             'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
             'updatedAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
-            'template' => TemplateFactory::new(),
-            'uri' => self::faker()->url(),
+            'template' => $template,
+            'uri' => $template->getContext().'/'.random_int(1, 50),
         ];
     }
 

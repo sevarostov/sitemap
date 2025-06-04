@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Template;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -15,21 +17,6 @@ class TemplateRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Template::class);
     }
-
-    //    /**
-    //     * @return Template[] Returns an array of Template objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('t.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
 
     //    public function findOneBySomeField($value): ?Template
     //    {

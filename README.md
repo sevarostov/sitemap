@@ -45,13 +45,20 @@ The website map generation module based on PHP 8.3 + MYSQL 9.3.0  with docker en
   docker compose exec php php bin/console s:g
   ```
 
-[//]: # (### 6.2 Changing sitemap &#40;Добавить / удалить / изменить отдельные записи для конкретной карты сайта по критерию&#41;)
+### 6.2 Changing sitemap (Добавить / удалить / изменить отдельные записи для конкретной карты сайта по критерию)
 
-[//]: # ( ```sh)
+ ```sh
 
-[//]: # (  docker compose exec php php bin/console s:g )
+  docker compose exec php php bin/console s:g main
 
-[//]: # (  ```)
+  ```
+### 6.2 Update sitemap (Добавить / удалить / изменить отдельные записи для конкретной карты сайта по критерию)
+
+ ```sh
+
+  docker compose exec php php bin/console s:g update
+
+  ```
 
 ### 7. Web
 

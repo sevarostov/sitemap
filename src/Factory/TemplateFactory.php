@@ -31,10 +31,11 @@ final class TemplateFactory extends PersistentProxyObjectFactory
      */
     protected function defaults(): array|callable
     {
-        return [
-            'context' => self::faker()->title,
-            'view' => self::faker()->randomHtml(10),
-        ];
+		$arr = explode(',',$_ENV['SITEMAP_NAMES']);
+		return [
+			'context' => $arr[random_int(0, 3)],
+			'view' => self::faker()->randomHtml(10),
+		];
     }
 
     /**
