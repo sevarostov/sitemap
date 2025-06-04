@@ -1,5 +1,5 @@
 # sitemap
-The website map generation module based on PHP 8.3 + MYSQL 9.3.0  with docker env
+The website map generation module based on PHP 8.3 + MYSQL 9.3.0  with docker environment
 
 ## Technical Requirements 
 - Git
@@ -32,3 +32,28 @@ The website map generation module based on PHP 8.3 + MYSQL 9.3.0  with docker en
  ```sh
   docker compose exec php php bin/console doctrine:migrations:migrate
   ```
+
+### 5. Seeding fixures (DEV env only)
+
+ ```sh
+  docker compose exec php php bin/console doctrine:fixtures:load --append
+  ```
+
+### 6. Generating sitemap (Сгенерировать по команде карты сайта.)
+
+ ```sh
+  docker compose exec php php bin/console s:g
+  ```
+### 7. Changing sitemap (Добавить / удалить / изменить отдельные записи для конкретной карты сайта по критерию)
+
+ ```sh
+  docker compose exec php php bin/console s:g 
+  ```
+
+### 8. Web
+
+  http://localhost
+  press "start" if you want to  load fixures manually.
+
+  http://localhost/sitemaps/sitemap.xml
+  to see created sitemap file

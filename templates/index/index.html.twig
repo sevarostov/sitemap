@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Список страниц</h1>
+    
+    {% if items is not empty %}
+        
+        <br>
+        
+        <div class="table-responsive table-end">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Uri</th>
+                    <th>Контекст</th>
+                    <th>Создана</th>
+                    <th>Обновлена</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>
+                            {{ item.id }}
+                        </td>
+                        <td><a href="#
+{#{{ path('control_user_user_show', { 'id': item.id }) }}#}
+">{{ item.uri }}</a></td>
+                        <td>
+                            {% if item.template %}
+                                <a href="#">{{ item.template.context }}</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ item.createdAt|date('Y-m-d') }}
+                        </td>
+                        <td>
+                            {{ item.updatedAt|date('Y-m-d') }}
+                        </td>
+                        <td nowrap="nowrap">
+                            <a href="#
+{#{{ path('control_user_user_show',  { 'id': item.id }) }}#}
+" class="btn btn-success fa fa-play" title="Карточка"></a>
+                            <a href="#
+{#{{ path('control_user_user_show',  { 'id': item.id }) }}#}
+" class="btn btn-success fa fa-pencil" title="Редактировать"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    {% else %}
+        <h2>Создать</h2>
+        <a href="{{ path('sitemap_generate') }}">Запуск</a>
+    {% endif %}
+
+{% endblock %}

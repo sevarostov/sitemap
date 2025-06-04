@@ -27,6 +27,20 @@ class Page
     #[ORM\JoinColumn(nullable: false)]
     private Template $template;
 
+	/**
+	 * @param string $uri
+	 * @param Template $template
+	 */
+	public function __construct(
+		string $uri,
+		Template $template,
+	)
+	{
+		$this->uri = $uri;
+		$this->createdAt = new \DateTimeImmutable('now');
+		$this->template = $template;
+	}
+
     public function getId(): int
     {
         return $this->id;
@@ -79,4 +93,11 @@ class Page
 
         return $this;
     }
+
+	/**
+	 * @return string
+	 */
+	public static function getSitemapsDirectory() {
+		return 'public/sitemaps';
+	}
 }

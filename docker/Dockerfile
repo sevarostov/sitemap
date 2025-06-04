@@ -20,6 +20,7 @@ RUN apt update  \
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 RUN apt-get update \
+    && apt-get install -y gnupg gosu curl ca-certificates zip unzip git libmcrypt-dev libcap2-bin libpng-dev \
     && php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && apt-get update \
     && apt-get -y autoremove \
