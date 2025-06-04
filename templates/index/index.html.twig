@@ -25,9 +25,7 @@
                         <td>
                             {{ item.id }}
                         </td>
-                        <td><a href="#
-{#{{ path('control_user_user_show', { 'id': item.id }) }}#}
-">{{ item.uri }}</a></td>
+                        <td><a href="#">{{ item.uri }}</a></td>
                         <td>
                             {% if item.template %}
                                 <a href="#">{{ item.template.context }}</a>
@@ -40,12 +38,8 @@
                             {{ item.updatedAt|date('Y-m-d') }}
                         </td>
                         <td nowrap="nowrap">
-                            <a href="#
-{#{{ path('control_user_user_show',  { 'id': item.id }) }}#}
-" class="btn btn-success fa fa-play" title="Карточка"></a>
-                            <a href="#
-{#{{ path('control_user_user_show',  { 'id': item.id }) }}#}
-" class="btn btn-success fa fa-pencil" title="Редактировать"></a>
+                            <a href="#" class="btn btn-success fa fa-play" title="Карточка"></a>
+                            <a href="#" class="btn btn-success fa fa-pencil" title="Редактировать"></a>
                         </td>
                     </tr>
                 {% endfor %}
