@@ -14,13 +14,13 @@ class Template
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $view = null;
+    private string $view;
 
     #[ORM\Column(length: 255)]
-    private ?string $context = null;
+    private string $context;
 
     /**
      * @var Collection<int, Page>

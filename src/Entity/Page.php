@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PageRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
@@ -11,27 +12,27 @@ class Page
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $uri = null;
+    private string $uri;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private DateTimeImmutable $createdAt;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updatedAt = null;
+    private ?DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'page')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Template $template = null;
+    private Template $template;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getUri(): ?string
+    public function getUri(): string
     {
         return $this->uri;
     }
@@ -43,7 +44,7 @@ class Page
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -67,12 +68,12 @@ class Page
         return $this;
     }
 
-    public function getTemplate(): ?Template
+    public function getTemplate(): Template
     {
         return $this->template;
     }
 
-    public function setTemplate(?Template $template): static
+    public function setTemplate(Template $template): static
     {
         $this->template = $template;
 

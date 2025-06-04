@@ -11,3 +11,4 @@
 ###< symfony/framework-bundle ###
 .DS_Store
 .idea*
+/docker/mysql*
