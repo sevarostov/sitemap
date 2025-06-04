@@ -39,18 +39,21 @@ The website map generation module based on PHP 8.3 + MYSQL 9.3.0  with docker en
   docker compose exec php php bin/console doctrine:fixtures:load --append
   ```
 
-### 6. Generating sitemap (Сгенерировать по команде карты сайта.)
+### 6.1 Generating sitemap (Сгенерировать по команде карты сайта.)
 
  ```sh
   docker compose exec php php bin/console s:g
   ```
-### 7. Changing sitemap (Добавить / удалить / изменить отдельные записи для конкретной карты сайта по критерию)
 
- ```sh
-  docker compose exec php php bin/console s:g 
-  ```
+[//]: # (### 6.2 Changing sitemap &#40;Добавить / удалить / изменить отдельные записи для конкретной карты сайта по критерию&#41;)
 
-### 8. Web
+[//]: # ( ```sh)
+
+[//]: # (  docker compose exec php php bin/console s:g )
+
+[//]: # (  ```)
+
+### 7. Web
 
   http://localhost
   press "start" if you want to  load fixures manually.
