@@ -67,8 +67,8 @@ class SitemapGenerateCommand extends Command {
 		foreach ($context as $contextItem) {
 			$item = $sitemap->addChild("sitemap");
 			$item->addChild("loc", $this->getProtocol()
-				. ($_SERVER['SERVER_NAME'] ?? $_ENV['SERVER_NAME'] ?? "localhost")
-				. DIRECTORY_SEPARATOR
+				. ($_SERVER['SERVER_NAME'] ?? $_ENV['SERVER_NAME'] ?? "localhost") . DIRECTORY_SEPARATOR
+				. 'sitemaps'. DIRECTORY_SEPARATOR
 				. rtrim($contextItem, '.')
 				. '.xml',
 			);
@@ -83,8 +83,8 @@ class SitemapGenerateCommand extends Command {
 		foreach ($pages as $page) {
 			$item = $sitemap->addChild("url");
 			$item->addChild("loc", $this->getProtocol()
-				. ($_SERVER['SERVER_NAME'] ?? $_ENV['SERVER_NAME'] ?? "localhost")
-				. DIRECTORY_SEPARATOR
+				. ($_SERVER['SERVER_NAME'] ?? $_ENV['SERVER_NAME'] ?? "localhost") . DIRECTORY_SEPARATOR
+				. 'sitemaps'. DIRECTORY_SEPARATOR
 				. $page->getUri());
 			$upper = mb_strtoupper($name);
 			$priority = "SITEMAP_NAME_" . $upper . "_PRIORITY";
